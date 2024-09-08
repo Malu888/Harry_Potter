@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Harry Potter Game</title>
+</head>
+
+<body>
+  <main>
+    <!-- PANTALLA DE INICIO -->
+    <div id="home-screen" class="container">
+      <img src="./img/logo-removebg-preview (1).png" alt="logo-harry-potter">
+      <br>
+      <img src="./img/harry_-potter-removebg-preview.png" width="400" alt="harry-potter">
+      <br>
+      <button id="start-btn">Alohomora</button>
+    </div>
+
+    <!-- PANTALLA DE JUEGO -->
+    <div id="game-screen" class="container">
+    </div>
+    <div id="game-box">
+      <h2>Stats</h2>
+      <p>Score: <span id="score">0</span></p>
+      <p>Lives: <span id="lives">3</span></p>
+    </div>
+
+    <!-- PANTALLA FINAL -->
+    <div id="game-over-screen" class="container">
+      <img src="" alt="" class="logo-img" width="" />
+      <h1>Game Over</h1>
+      <br />
+      <button id="restart-btn">Restart</button>
+    </div>
+  </main>
+  <script src="./script.js"></script>
+  <script src="./game.js"></script>
+</body>
+
+</html>

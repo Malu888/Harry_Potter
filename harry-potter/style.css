@@ -1,0 +1,81 @@
+body {
+    margin-top: 0;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#home-screen img {
+    margin: -80px 0;
+}
+
+#home-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#game-screen {
+    color: #FFF;
+    display: none;
+    width: 100vw;
+    height: 50vh;
+    padding: 20px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(./img/background-img.png);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+#game-box {
+    overflow: hidden;
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    color: #FFF;
+}
+
+
+#start-btn {
+    background-color: #FFF;
+    color: black;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-top: 50px;
+    box-shadow: 0 0 10px #FFF;
+}
+
+#restart-btn {
+
+    background-color: #FFF;
+    color: black;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px #FFF;
+}
+
+#game-over-screen {
+    overflow: hidden;
+    display: none;
+    color: #FFF;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
