@@ -19,34 +19,50 @@ body {
     justify-content: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+
 
 #game-screen {
     color: #FFF;
     display: none;
-    width: 100vw;
-    height: 50vh;
+    width: 100%;
+    height: 80vh;
     padding: 20px;
     overflow: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url(./img/background-img.png);
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
 
 #game-box {
-    overflow: hidden;
-    display: none;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    color: #FFF;
+  overflow: hidden;
+  display: none;
+  background-color: darkgray;
+  width: 600px;
+  height: 400px;
+
+  position: relative; /* permite posicionar los elementos de forma absoluta dentro del game-box */
+  overflow: hidden; /* previene que los elementos salgan visualmente del game-box */
+  user-select: none; /* previene que los elementos del game-box sean resaltados al hacer click */
+  
+  background-image: url("./img/new-background");
+  background-position: center;
+  background-size: cover;
 }
+
+#game-box * {
+    pointer-events: none; /* previene que todos los elementos del game-box sean arrastrados al clickar sobre ellos */
+  }
+  
+  #game-screen, #game-over-screen {
+    display: none;
+  }
+
 
 
 #start-btn {
