@@ -16,6 +16,14 @@ window.onload = function () {
     startButton.addEventListener("click", function () {
       startGame();
     });
+
+    function restartGame() {
+      location.reload();
+    }
+
+    restartButton.addEventListener("click", function () {
+    restartGame();
+    });
   
     function startGame() {
       console.log("start game");

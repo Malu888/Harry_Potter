@@ -33,4 +33,20 @@ class Harry {
         this.directionX = x;
         this.directionY = y;
       }
-}
+
+      didCollide (snitch) {
+       const harryRect = this.element.getBoundingClientRect();
+       const snitchesRect = snitch.element.getBoundingClientRect();
+
+       if (
+        harryRect.left < snitchesRect.right &&
+        harryRect.right > snitchesRect.left &&
+        harryRect.top < snitchesRect.bottom &&
+        harryRect.bottom > snitchesRect.top
+      ) {
+        console.log("Some points!nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
+        return true;
+      } else {
+        return false;
+      }
+} }

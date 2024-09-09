@@ -1,5 +1,5 @@
 class Snitch {
-    constructor(gameBox) {
+    constructor(gameBox, left, top, width, height, img) {
       this.gameBox = gameBox;
       this.left = left;
       this.top = top;
@@ -7,7 +7,7 @@ class Snitch {
       this.height = height;
       this.element = document.createElement("img");
   
-      this.element.src = "./img/snitch.png";
+      this.element.src = img;
       this.element.style.position = "absolute";
       this.element.style.width = `${this.width}px`;
       this.element.style.height = `${this.height}px`;
@@ -15,17 +15,17 @@ class Snitch {
       this.element.style.top = `${this.top}px`;
   
       this.gameBox.appendChild(this.element);
-      console.log(this.element)
+    
     }
   
     updatePosition() {
-      // Update the obstacle's position based on the properties left and top
+      
       this.element.style.left = `${this.left}px`;
       this.element.style.top = `${this.top}px`;
     }
   
     move() {
-      this.top += 3;
+      this.top += 4;
       this.updatePosition();
       }
     }

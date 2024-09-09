@@ -12,7 +12,7 @@
 <body>
   <main>
     <!-- PANTALLA DE INICIO -->
-    <div id="home-screen" >
+    <div id="home-screen">
       <img src="./img/logo-harry.png" alt="logo-harry-potter">
       <br>
       <img src="./img/harry_-potter-removebg-preview.png" width="400" alt="harry-potter">
@@ -20,20 +20,31 @@
       <button id="start-btn">Alohomora</button>
     </div>
 
-    <!-- PANTALLA DE JUEGO -->
+    <!-- PANTALLA DE JUEGO1 -->
     <div id="game-screen" class="container">
-      <h2>Stats</h2>
-      <p>Score: <span id="score">0</span></p>
-      <p>Lives: <span id="lives">3</span></p>
     </div>
     <div id="game-box">
-      
+      <br>
+      <p>Score: <span id="score">0</span></p>
+      <p>Lives: <span id="lives">3</span></p>
+      <br>
+      <div id="timer">Timer : 40s </div>
+    </div>
+
+    <!--PANTALLA DE CAMBIO DE NIVEL-->
+    <div id="next-level-screen">
+      <img src="./img/bby1" alt="dobby-dance">
+      <img src="./img/dobby" alt="dobby-dance-again">
+      <br>
+      <h1>Let's go to the next level muggle!</h1>
+      <button id="start-next-level"></button>
     </div>
 
     <!-- PANTALLA FINAL -->
     <div id="game-over-screen" class="container">
       <img src="" alt="" class="logo-img" width="" />
       <h1>Game Over</h1>
+      <img src="./img/game-over" alt="game-over">
       <br />
       <button id="restart-btn">Restart</button>
     </div>
@@ -41,7 +52,7 @@
   <script src="./js/script.js"></script>
   <script src="./js/game.js"></script>
   <script src="./js/harry.js"></script>
-  <!--<script src="./js/snitch.js"></script>-->
+  <script src="./js/snitch.js"></script>
 </body>
 
 </html>

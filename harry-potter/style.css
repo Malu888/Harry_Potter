@@ -27,6 +27,20 @@ body {
     margin: 50px;
 }
 
+#score,
+#lives {
+    display: flex;
+    color: #FFF;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#timer {
+    
+    font-family: 'Courier New', Courier, monospace;
+    color: #FFF;
+    
+}
+
 
 #game-screen {
     color: #FFF;
@@ -46,9 +60,9 @@ body {
   width: 600px;
   height: 400px;
 
-  position: relative; /* permite posicionar los elementos de forma absoluta dentro del game-box */
-  overflow: hidden; /* previene que los elementos salgan visualmente del game-box */
-  user-select: none; /* previene que los elementos del game-box sean resaltados al hacer click */
+  position: relative; 
+  overflow: hidden; 
+  user-select: none; 
   
   background-image: url("./img/new-background");
   background-position: center;
@@ -60,6 +74,14 @@ body {
   }
   
   #game-screen, #game-over-screen {
+    display: none;
+  }
+
+  #next-level-screen {
+    text-align: center;
+    color: #FFF;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
     display: none;
   }
 
