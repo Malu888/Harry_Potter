@@ -126,6 +126,16 @@ body {
     box-shadow: 0 0 10px #FFF;
 }
 
+#restart-second-btn {
+  background-color: #FFF;
+    color: black;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px #FFF;
+}
+
 #game-over-screen {
     overflow: hidden;
     display: none;
