@@ -3,10 +3,12 @@ class Game {
     this.homeScreen = document.querySelector('#home-screen');
     this.gameBox = document.querySelector('#game-box');
     this.gameOverScreen = document.querySelector('#game-over-screen');
+    this.nextLevelScreen = document.querySelector('#next-level-screen');
     this.harry = new Harry(this.gameBox, 100, 250, 90, 80, './img/icon.png');
     this.height = 1100;
     this.width = 700;
     this.snitches = [];
+    this.dementors = [];
     this.score = 0;
     this.scoreElement = document.querySelector('#score');
     this.lives = 3;
@@ -18,7 +20,7 @@ class Game {
     this.timerElement = document.querySelector('#timer');
     this.level = 1;
     this.scoreToAdvance = 30;
-    this.nextLevelScreen = document.querySelector('#next-level-screen')
+
 
 
 
@@ -51,6 +53,19 @@ class Game {
     this.snitches.push(newSnitch);
   }
 
+  addDementors() {
+    if (this.level > 1) {
+      const newDementor = new Dementor(
+        this.gameBox,
+        Math.floor(Math.random() * (this.width - 50)),
+        0,
+        100, 100,
+        './img/dementor.png'
+      );
+      this.dementors.push(newDementor);
+    }
+  }
+
   start() {
     this.homeScreen.style.height = `${this.height}px`
     this.gameBox.style.width = `${this.width}px`;
@@ -69,14 +84,16 @@ class Game {
       this.addSnitch();
     }, 2000);
 
+    this.dementorIntervalId = setInterval(() => {
+      this.addDementors();
+    }, 7000);
+
     this.timerIntervalId = setInterval(() => {
       this.timeLeft--;
       this.updateTimer();
-
+      console.log(this.timeLeft)
       if (this.timeLeft < -1) {
         this.gameOver();
-      } else if (this.score >= this.scoreToAdvance) {
-        this.nextLevel();
       }
     }, 1000);
   }
@@ -85,7 +102,7 @@ class Game {
 
 
   gameLoop() {
-    console.log("in the game loop");
+    //console.log("in the game loop");
 
     this.update();
 
@@ -93,14 +110,15 @@ class Game {
     if (this.gameIsOver) {
       clearInterval(this.gameIntervalId);
       clearInterval(this.snitchIntervalId);
-      clearInterval(this.timerIntervalId)
+      clearInterval(this.timerIntervalId);
+      clearInterval(this.dementorIntervalId);
     }
 
 
   }
 
   update() {
-    console.log("in the update");
+    //console.log("in the update");
     this.harry.move();
 
     for (let i = 0; i < this.snitches.length; i++) {
@@ -113,6 +131,12 @@ class Game {
         this.score += 5
         this.updateScore();
         i--;
+        console.log(this.score, this.scoreToAdvance)
+        if (this.score >= this.scoreToAdvance) {
+          this.nextLevel();
+          return;
+        }
+
       } else if (snitchh.top > this.height) {
         this.score++;
         snitchh.element.remove();
@@ -120,8 +144,27 @@ class Game {
         i--;
       }
     }
-  }
 
+    for (let j = 0; j < this.dementors.length; j++) {
+      const dementor = this.dementors[j];
+      dementor.move();
+
+      if (this.harry.didCollide(dementor)) {
+        this.lives--;
+        this.updateLives();
+        console.log('colidiuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu')
+        dementor.element.remove();
+        this.dementors.splice(j, 1);
+        j--;
+      }
+
+      if (this.lives <= 0) {
+        this.gameOver()
+        return;
+      }
+    }
+
+  }
 
 
   addEventListeners() {
@@ -150,11 +193,17 @@ class Game {
 
   gameOver() {
     this.harry.element.remove();
+    this.snitches.forEach(snitch => snitch.element.remove());
+    this.dementors.forEach(dementor => dementor.element.remove());
     this.timeLeft = 0;
     this.gameIsOver = true;
     this.gameBox.style.display = "none";
     this.gameOverScreen.style.display = "block";
 
+    clearInterval(this.gameIntervalId);
+    clearInterval(this.snitchIntervalId);
+    clearInterval(this.dementorIntervalId);
+    clearInterval(this.timerIntervalId);
   }
 
   nextLevel() {
@@ -162,20 +211,43 @@ class Game {
     clearInterval(this.snitchIntervalId);
     clearInterval(this.timerIntervalId);
 
-    this.level++;
-    this.timeLeft = 20;
-    this.scoreToAdvance += 30;
+
     this.updateTimer();
     this.updateScore();
 
     this.gameBox.style.display = "none";
     this.nextLevelScreen.style.display = "block";
+    // a partir de aqui estou a reiniciar o jogo
 
+  }
 
+  startNewLevel() {
+    this.level++;
+    this.timeLeft = 20;
+    this.scoreToAdvance = 30;
+    this.resetGameElements();
     this.nextLevelScreen.style.display = "none";
     this.gameBox.style.display = "block";
+   this.snitches = [];
+   this.dementors = [];
     this.start();
   }
+
+  resetGameElements() {
+    this.score = 0;
+    this.lives = 3;
+    this.updateScore();
+    this.updateLives();
+  }
+
+  newGameLevel() {
+    this.start();
+    this.gameBox.style.display = "block";
+    this.nextLevelScreen.style.display = "none";
+  }
+
+
+
 }
 
 

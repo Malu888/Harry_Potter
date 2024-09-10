@@ -85,6 +85,24 @@ body {
     display: none;
   }
 
+  #winner-screen {
+    overflow: hidden;
+    display: none;
+    text-align: center;
+    color: #FFF;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+
+  #start-next-level-btn {
+    background-color: #FFF;
+    color: black;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-top: 50px;
+    box-shadow: 0 0 10px #FFF;
+  }
 
 
 #start-btn {

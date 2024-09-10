@@ -34,19 +34,19 @@ class Harry {
         this.directionY = y;
       }
 
-      didCollide (snitch) {
+      didCollide (other) {
        const harryRect = this.element.getBoundingClientRect();
-       const snitchesRect = snitch.element.getBoundingClientRect();
+       const otherRect = other.element.getBoundingClientRect();
 
        if (
-        harryRect.left < snitchesRect.right &&
-        harryRect.right > snitchesRect.left &&
-        harryRect.top < snitchesRect.bottom &&
-        harryRect.bottom > snitchesRect.top
+        harryRect.left < otherRect.right &&
+        harryRect.right > otherRect.left &&
+        harryRect.top < otherRect.bottom &&
+        harryRect.bottom > otherRect.top
       ) {
-        console.log("Some points!nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
         return true;
       } else {
         return false;
       }
-} }
+      }
+  }
