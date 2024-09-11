@@ -7,11 +7,6 @@ window.onload = function () {
   let game;
   startButton.addEventListener("click", function () {
     startGame();
-    audio.play().then(function () {
-      console.log("Música iniciada com sucesso.");
-    }).catch(function (error) {
-      console.log("Erro ao tentar iniciar a música: " + error);
-    });
   });
 
   function restartGame() {
