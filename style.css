@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/harry-potter');
+
 body {
     margin-top: 0;
     background-color: black;
@@ -8,15 +10,18 @@ body {
     min-height: 100vh;
 }
 
-#home-screen img {
-    margin: -80px 0;
-}
-
 #home-screen {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0;
+}
+
+.harry-potter {
+  width: 400px;
+  margin-top: 0;
+  padding: 0;
 }
 
 .container {
@@ -31,12 +36,12 @@ body {
 #lives {
     display: flex;
     color: #FFF;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Harry Potter', sans-serif;
 }
 
 #timer {
     
-    font-family: 'Courier New', Courier, monospace;
+  font-family: 'Harry Potter', sans-serif;
     color: #FFF;
     
 }
@@ -80,7 +85,7 @@ body {
   #next-level-screen {
     text-align: center;
     color: #FFF;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Harry Potter', sans-serif;
     overflow: hidden;
     display: none;
   }
@@ -90,7 +95,7 @@ body {
     display: none;
     text-align: center;
     color: #FFF;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Harry Potter', sans-serif;
   }
 
 
@@ -102,6 +107,7 @@ body {
     border-radius: 20px;
     margin-top: 50px;
     box-shadow: 0 0 10px #FFF;
+    font-family: 'Harry Potter', sans-serif;
   }
 
 
@@ -111,8 +117,8 @@ body {
     padding: 20px;
     font-size: 20px;
     border-radius: 20px;
-    margin-top: 50px;
     box-shadow: 0 0 10px #FFF;
+    font-family: 'Harry Potter', sans-serif;
 }
 
 #restart-btn {
@@ -124,6 +130,7 @@ body {
     border-radius: 20px;
     margin-top: 30px;
     box-shadow: 0 0 10px #FFF;
+    font-family: 'Harry Potter', sans-serif;
 }
 
 #restart-second-btn {
@@ -134,6 +141,7 @@ body {
     border-radius: 20px;
     margin-top: 30px;
     box-shadow: 0 0 10px #FFF;
+    font-family: 'Harry Potter', sans-serif;
 }
 
 #game-over-screen {
@@ -144,4 +152,5 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Harry Potter', sans-serif;
 }

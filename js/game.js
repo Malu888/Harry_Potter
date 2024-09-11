@@ -4,25 +4,25 @@ class Game {
     this.gameBox = document.querySelector('#game-box');
     this.gameOverScreen = document.querySelector('#game-over-screen');
     this.nextLevelScreen = document.querySelector('#next-level-screen');
-    this.winnerScreen = document.querySelector('#winner-screen')
+    this.winnerScreen = document.querySelector('#winner-screen');
+    this.scoreElement = document.querySelector('#score');
+    this.livesElement = document.querySelector('#lives');
+    this.gameLoopFrequency = Math.round(1000 / 60);
+    this.timerElement = document.querySelector('#timer');
     this.harry = new Harry(this.gameBox, 100, 250, 90, 80, './img/icon.png');
     this.height = 1100;
     this.width = 700;
     this.snitches = [];
     this.dementors = [];
     this.score = 0;
-    this.scoreElement = document.querySelector('#score');
     this.lives = 3;
-    this.livesElement = document.querySelector('#lives');
     this.gameIsOver = false;
     this.gameIntervalId;
-    this.gameLoopFrequency = Math.round(1000 / 60);
     this.timeLeft = 30;
-    this.timerElement = document.querySelector('#timer');
     this.level = 1;
-    this.scoreToAdvance = 30;
+    this.scoreToAdvance = 60;
     this.maxLevel = 3;
-    this.scoreToWin = 35;
+    this.scoreToWin = 70;
 
     this.updateScore();
     this.updateLives();
@@ -35,7 +35,7 @@ class Game {
 
   updateScore() {
     this.scoreElement.textContent = `${this.score}`;
-
+    console.log(this.score, `pontosssssssssssssssssssssssssssss`)
   }
 
   updateLives() {
@@ -59,7 +59,7 @@ class Game {
         this.gameBox,
         Math.floor(Math.random() * (this.width - 50)),
         0,
-        130, 130,
+        100, 100,
         './img/dementor.png'
       );
       this.dementors.push(newDementor);
@@ -86,7 +86,7 @@ class Game {
 
     this.dementorIntervalId = setInterval(() => {
       this.addDementors();
-    }, 4000);
+    }, 2000);
 
     this.timerIntervalId = setInterval(() => {
       this.timeLeft--;
@@ -139,7 +139,6 @@ class Game {
         }
 
       } else if (snitchh.top > this.height) {
-        this.score++;
         snitchh.element.remove();
         this.snitches.splice(i, 1);
         i--;
@@ -259,6 +258,7 @@ class Game {
 
     this.gameBox.style.display = "none";
     this.winnerScreen.style.display = "block";
+    this.nextLevelScreen.style.display = "none";
     this.gameIsOver = true;
   }
 
