@@ -18,22 +18,55 @@
       </audio>-->
       <img src="./img/logo-harry.png" alt="logo-harry-potter">
       <img class="harry-potter" src="./img/harry_-potter-removebg-preview.png" alt="harry-potter">
-      <button id="start-btn">Alohomora</button>
+      <button id="instructions-btn">Alohomora</button>
     </div>
 
-    <!-- PANTALLA DE JUEGO1 -->
-    <div id="game-screen" class="container">
+
+    <!--Instruciones-->
+    <div id="text">
+      <br>
+      <h1>Instrucciones del Juego</h1>
+      <br>
+      <p>
+        Ayuda a Harry Potter a completar los desafíos de cada nivel para ganar el juego.
+      </p>
+      <p>
+        <strong>Nivel 1:</strong><br>
+        <strong>Tiempo:</strong> 30 segundos.<br>
+        <strong>Objetivo:</strong> Recolecta objetos mágicos para alcanzar una puntuación de 60 puntos.<br>
+        <br>
+      </p>
+      <p>
+        <strong>Nivel 2:</strong><br>
+        <strong>Tiempo:</strong> 30 segundos.<br>
+        <strong>Objetivo:</strong> Sobrevive a los Dementores.<br>
+        <strong>Consejos:</strong> Evita chocar con los Dementores, ya que cada colisión reduce una vida.<br>
+        Recolectar pociones Mágicas agrega una vida extra.
+      </p>
+      <p>
+        <br>
+        <strong>Movimientos:</strong><br>
+        Usa las flechas del teclado para mover a Harry por el juego.
+      </p>
+      <img class="keyboard" src="./img/keyboard.png" alt="keyboard">
+      <br>
+      <button id="start-btn">Play</button>
+    </div>
+
+
+    <!-- PANTALLA DE JUEGO -->
+    <div id="game-screen">
       <div id="game-box"></div>
       <div id="game-info">
-      <span id="score">0</span>
-      <span id="lives">3</span>
-      <div id="timer">40</div>
+        <span id="score">0</span>
+        <span id="lives">3</span>
+        <div id="timer">40</div>
       </div>
     </div>
-    
+
 
     <!--PANTALLA DE CAMBIO DE NIVEL-->
-    <div id="next-level-screen">
+    <div id="next-level-screen" class="container">
       <img src="./img/bby1" alt="dobby-dance">
       <img src="./img/dobby" alt="dobby-dance-again">
       <br>
@@ -42,9 +75,11 @@
     </div>
 
     <!--PANTALLA GANADORA-->
-    <div id="winner-screen">
+    <div id="winner-screen" class="container">
       <h1>YOU WIN</h1>
+      <br>
       <img src="./img/ganador" alt="winner-game">
+      <br>
       <button id="restart-btn">Restart</button>
     </div>
 

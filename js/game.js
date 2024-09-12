@@ -1,6 +1,7 @@
 class Game {
   constructor() {
     this.homeScreen = document.querySelector('#home-screen');
+    this.textScreen = document.querySelector('#text');
     this.scoreElement = document.querySelector('#score');
     this.livesElement = document.querySelector('#lives');
     this.timerElement = document.querySelector('#timer');
@@ -142,10 +143,9 @@ class Game {
   start() {
     this.homeScreen.style.height = `${this.height}px`
     this.gameBox.style.width = `${this.width}px`;
-
-    this.homeScreen.style.display = "none";
-    this.gameScreen.style.display = "block";
-    this.gameBox.style.display = "block";
+    
+    this.gameBox.style.display = 'block';
+    this.gameScreen.style.display = 'block';
 
     this.addEventListeners();
 
@@ -181,7 +181,7 @@ class Game {
       this.addMagicPotion();
     }, 4000);
 
-    
+
 
     this.timerIntervalId = setInterval(() => {
       this.timeLeft--;
@@ -210,9 +210,9 @@ class Game {
       clearInterval(this.relicsIntervalId);
       clearInterval(this.spellIntervalId);
       clearInterval(this.letterIntervalId);
-      clearInterval(this.secondDementorsIntervalId);
+      clearInterval(this.secondDementorIntervalId);
       clearInterval(this.magicPotionIntervalId);
-      
+
     }
   }
 
@@ -340,7 +340,7 @@ class Game {
       }
 
 
-      
+
     }
 
     for (let d = 0; d < this.secondDementors.length; d++) {
@@ -450,12 +450,13 @@ class Game {
     clearInterval(this.letterIntervalId);
     clearInterval(this.secondDementorsIntervalId);
     clearInterval(this.magicPotionIntervalId);
-    
+
 
 
     this.harry.element.remove();
     this.timeLeft = 0;
     this.gameIsOver = true;
+    this.textScreen.style.display = 'none';
     this.gameBox.style.display = "none";
     this.gameScreen.style.display = "none";
     this.gameOverScreen.style.display = "block";
@@ -473,7 +474,7 @@ class Game {
     clearInterval(this.timerIntervalId);
     clearInterval(this.secondDementorsIntervalId);
     clearInterval(this.magicPotionIntervalId);
-    
+
 
 
     this.gameBox.style.display = "none";
@@ -536,15 +537,16 @@ class Game {
     clearInterval(this.letterIntervalId);
     clearInterval(this.dementorIntervalId);
     clearInterval(this.timerIntervalId);
-    clearInterval(this.secondDementorsIntervalId);
+    clearInterval(this.secondDementorIntervalId);
     clearInterval(this.magicPotionIntervalId);
-    
+
 
 
 
     this.gameBox.style.display = "none";
     this.gameScreen.style.display = "none";
     this.nextLevelScreen.style.display = "none";
+    this.gameOverScreen.style.display = "none";
     this.winnerScreen.style.display = "block";
     this.gameIsOver = true;
   }

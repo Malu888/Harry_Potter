@@ -1,11 +1,21 @@
 window.onload = function () {
+  const instructionsButton = document.querySelector('#instructions-btn');
   const startButton = document.querySelector("#start-btn");
   const restartButtons = document.querySelectorAll("#restart-btn");
   const startNextLevelButton = document.querySelector('#start-next-level-btn');
   const audio = document.querySelector('#myaudio');
-
+  const homeScreen = document.querySelector('#home-screen');
+  const textScreen = document.querySelector('#text');
+  
   let game;
+
+  instructionsButton.addEventListener("click", function() {
+    homeScreen.style.display = 'none';
+    textScreen.style.display = 'block';
+  });
+  
   startButton.addEventListener("click", function () {
+    textScreen.style.display = 'none';
     startGame();
   });
 
