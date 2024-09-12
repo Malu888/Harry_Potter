@@ -6,7 +6,6 @@ window.onload = function () {
   const audio = document.querySelector('#myaudio');
   const homeScreen = document.querySelector('#home-screen');
   const textScreen = document.querySelector('#text');
-  
   let game;
 
   instructionsButton.addEventListener("click", function() {
