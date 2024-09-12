@@ -3,16 +3,17 @@ window.onload = function () {
   const startButton = document.querySelector("#start-btn");
   const restartButtons = document.querySelectorAll("#restart-btn");
   const startNextLevelButton = document.querySelector('#start-next-level-btn');
-  const audio = document.querySelector('#myaudio');
   const homeScreen = document.querySelector('#home-screen');
   const textScreen = document.querySelector('#text');
+  const music = document.querySelector("#background-music");
   let game;
 
-  instructionsButton.addEventListener("click", function() {
+  instructionsButton.addEventListener("click", function () {
+    music.play()
     homeScreen.style.display = 'none';
     textScreen.style.display = 'block';
   });
-  
+
   startButton.addEventListener("click", function () {
     textScreen.style.display = 'none';
     startGame();
@@ -35,11 +36,13 @@ window.onload = function () {
       console.error("O jogo ainda não foi iniciado!");
     }
   });
+
+
+
   function startGame() {
     game = new Game();
     game.start();
   }
-
 };
 
 

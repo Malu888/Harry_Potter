@@ -22,6 +22,19 @@ class Harry {
         
         this.left += this.directionX * 6;  //movimento horizontal
         this.top += this.directionY * 6;  //movimento vertical
+
+        if (this.left < 10) {
+          this.left = 10;
+        }
+        if (this.top < 10) {
+          this.top = 10;
+        }
+        if (this.left > this.gameBox.offsetWidth - this.width - 10) {
+          this.left = this.gameBox.offsetWidth - this.width - 10;
+        }
+        if (this.top > this.gameBox.offsetHeight - this.height - 10) {
+          this.top = this.gameBox.offsetHeight - this.height - 10;
+        }
     
         
         this.element.style.left = `${this.left}px`;

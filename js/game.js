@@ -37,15 +37,23 @@ class Game {
   }
 
   updateTimer() {
-    this.timerElement.textContent = `You have ${this.timeLeft} seconds to complete this level!`;
+    this.timerElement.textContent = `Tienes ${this.timeLeft} segundos para completar este nivel!`;
   }
 
   updateScore() {
-    this.scoreElement.textContent = `Score: ${this.score}!`;
+    if (this.level <= 1) {
+    this.scoreElement.textContent = `Puntos: ${this.score}!`;
+    } else {
+      this.scoreElement.textContent = '';
+    }
   }
 
   updateLives() {
-    this.livesElement.textContent = `Lives: ${this.lives}`;
+    if (this.level <= 1) {
+      this.livesElement.textContent = '';
+    } else if (this.level > 1){
+      this.livesElement.textContent = `Tienes ${this.lives} vidas`;
+    }
   }
 
   addSnitch() {
@@ -448,7 +456,7 @@ class Game {
     clearInterval(this.dementorIntervalId);
     clearInterval(this.timerIntervalId);
     clearInterval(this.letterIntervalId);
-    clearInterval(this.secondDementorsIntervalId);
+    clearInterval(this.secondDementorIntervalId);
     clearInterval(this.magicPotionIntervalId);
 
 
@@ -472,7 +480,7 @@ class Game {
     clearInterval(this.letterIntervalId);
     clearInterval(this.dementorIntervalId);
     clearInterval(this.timerIntervalId);
-    clearInterval(this.secondDementorsIntervalId);
+    clearInterval(this.secondDementorIntervalId);
     clearInterval(this.magicPotionIntervalId);
 
 
@@ -509,11 +517,11 @@ class Game {
     if (this.gameIsOver) return;
     this.resetGameElements();
     this.level++;
-    this.timeLeft = 10;
+    this.timeLeft = 30;
     this.nextLevelScreen.style.display = "none";
     this.gameBox.style.display = "block";
     this.gameScreen.style.display = "block";
-    this.scoreElement.style.display = "block";
+    this.scoreElement.style.display = "none"; //este nivel n tem scores
     this.livesElement.style.display = "block";
     this.timerElement.style.display = "block";
     this.homeScreen.style.height = `${this.height}px`
