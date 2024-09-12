@@ -27,7 +27,7 @@ class Game {
     this.gameIntervalId;
     this.timeLeft = 30;
     this.level = 1;
-    this.scoreToAdvance = 30;
+    this.scoreToAdvance = 10; //repor vidas para 60
     this.maxLevel = 3;
     this.scoreToWin = 70;
 
@@ -333,6 +333,7 @@ class Game {
       console.log(`tou nas dementadores ${this.lives}`)
       if (this.lives < 1) {
         this.gameOver();
+        break;
       }
       if (this.timeLeft < 1) {
         this.winner();
@@ -358,6 +359,7 @@ class Game {
 
       if (this.lives < 1) {
         this.gameOver();
+        break;
       }
       if (this.timeLeft < 1) {
         this.winner();
@@ -379,6 +381,7 @@ class Game {
       console.log(`tou nas magic`)
       if (this.lives < 1) {
         this.gameOver();
+        break;
       }
       if (this.timeLeft < 1) {
         this.winner();
@@ -528,14 +531,14 @@ class Game {
     this.gameBox.style.width = `${this.width}px`;
   }
 
-
+/*
   checkWinner() {
     if (this.lives >= 1 && this.level === 2 && this.timer < 1) {
       this.winner();
       return true;
     }
     return false;
-  }
+  }*/
 
   winner() {
     clearInterval(this.gameIntervalId);
