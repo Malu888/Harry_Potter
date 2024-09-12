@@ -27,7 +27,7 @@ class Game {
     this.gameIntervalId;
     this.timeLeft = 30;
     this.level = 1;
-    this.scoreToAdvance = 10; //repor vidas para 60
+    this.scoreToAdvance = 60;
     this.maxLevel = 3;
     this.scoreToWin = 70;
 
@@ -42,7 +42,7 @@ class Game {
 
   updateScore() {
     if (this.level <= 1) {
-    this.scoreElement.textContent = `Puntos: ${this.score}!`;
+      this.scoreElement.textContent = `Puntos: ${this.score}!`;
     } else {
       this.scoreElement.textContent = '';
     }
@@ -51,7 +51,7 @@ class Game {
   updateLives() {
     if (this.level <= 1) {
       this.livesElement.textContent = '';
-    } else if (this.level > 1){
+    } else if (this.level > 1) {
       this.livesElement.textContent = `Tienes ${this.lives} vidas`;
     }
   }
@@ -151,7 +151,7 @@ class Game {
   start() {
     this.homeScreen.style.height = `${this.height}px`
     this.gameBox.style.width = `${this.width}px`;
-    
+
     this.gameBox.style.display = 'block';
     this.gameScreen.style.display = 'block';
 
@@ -531,15 +531,6 @@ class Game {
     this.gameBox.style.width = `${this.width}px`;
   }
 
-/*
-  checkWinner() {
-    if (this.lives >= 1 && this.level === 2 && this.timer < 1) {
-      this.winner();
-      return true;
-    }
-    return false;
-  }*/
-
   winner() {
     clearInterval(this.gameIntervalId);
     clearInterval(this.snitchIntervalId);
@@ -550,9 +541,6 @@ class Game {
     clearInterval(this.timerIntervalId);
     clearInterval(this.secondDementorIntervalId);
     clearInterval(this.magicPotionIntervalId);
-
-
-
 
     this.gameBox.style.display = "none";
     this.gameScreen.style.display = "none";
