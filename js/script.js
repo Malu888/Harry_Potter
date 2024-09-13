@@ -33,7 +33,7 @@ window.onload = function () {
     if (game) {
       game.startNewLevel();
     } else {
-      console.error("O jogo ainda não foi iniciado!");
+
     }
   });
 

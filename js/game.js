@@ -11,7 +11,7 @@ class Game {
     this.nextLevelScreen = document.querySelector('#next-level-screen');
     this.winnerScreen = document.querySelector('#winner-screen');
     this.gameLoopFrequency = Math.round(1000 / 60);
-    this.harry = new Harry(this.gameBox, 100, 250, 120, 100, './img/second harry.png');
+    this.harry = new Harry(this.gameBox, 100, 250, 120, 100, './img/second harry.png'); //Creación de Harry Potter
     this.height = 1500;
     this.width = 1000;
     this.snitches = [];
@@ -29,7 +29,6 @@ class Game {
     this.level = 1;
     this.scoreToAdvance = 60;
     this.maxLevel = 3;
-    this.scoreToWin = 70;
 
     this.updateScore();
     this.updateLives();
@@ -41,7 +40,7 @@ class Game {
   }
 
   updateScore() {
-    if (this.level <= 1) {
+    if (this.level <= 1) { //La puntuación sólo existe en el primer nivel.
       this.scoreElement.textContent = `Puntos: ${this.score}!`;
     } else {
       this.scoreElement.textContent = '';
@@ -49,13 +48,14 @@ class Game {
   }
 
   updateLives() {
-    if (this.level <= 1) {
+    if (this.level <= 1) { //Las vidas solo existen en el segundo nivel.
       this.livesElement.textContent = '';
     } else if (this.level > 1) {
       this.livesElement.textContent = `Tienes ${this.lives} vidas`;
     }
   }
 
+  //Añade elementos de primer nivel al juego.
   addSnitch() {
     if (this.level <= 1) {
       const newSnitch = new Snitch(
@@ -108,6 +108,7 @@ class Game {
     }
   }
 
+  //Añade elementos de segundo nivel al juego.
   addDementors() {
     if (this.level > 1) {
       const newDementor = new Dementor(
@@ -190,11 +191,10 @@ class Game {
     }, 4000);
 
 
-
+    // Timer
     this.timerIntervalId = setInterval(() => {
       this.timeLeft--;
       this.updateTimer();
-      console.log(this.timeLeft)
       if (this.timeLeft === 0 && this.level === 1) {
         this.gameOver();
       }
@@ -205,7 +205,7 @@ class Game {
 
 
   gameLoop() {
-    //console.log("in the game loop");
+
 
     this.update();
 
@@ -224,6 +224,7 @@ class Game {
     }
   }
 
+
   update() {
     if (this.gameIsOver) return;
     this.harry.move();
@@ -232,7 +233,6 @@ class Game {
     for (let i = 0; i < this.snitches.length; i++) {
       const snitchh = this.snitches[i]
       snitchh.move();
-      console.log(`tou nas snitchs`)
       if (this.harry.didCollide(snitchh)) {
         snitchh.element.remove();
         this.snitches.splice(i, 1);
@@ -256,7 +256,7 @@ class Game {
     for (let r = 0; r < this.relics.length; r++) {
       const relicsOfDeath = this.relics[r]
       relicsOfDeath.move();
-      console.log(`tou nas relics`)
+
 
       if (this.harry.didCollide(relicsOfDeath)) {
         relicsOfDeath.element.remove();
@@ -281,7 +281,7 @@ class Game {
     for (let s = 0; s < this.spells.length; s++) {
       const spell = this.spells[s];
       spell.move();
-      console.log(`tou nas spell`)
+
 
       if (this.harry.didCollide(spell)) {
         spell.element.remove();
@@ -304,7 +304,7 @@ class Game {
     for (let l = 0; l < this.letters.length; l++) {
       const letter = this.letters[l]
       letter.move();
-      console.log(`tou nas letters`)
+
 
       if (this.harry.didCollide(letter)) {
         letter.element.remove();
@@ -330,7 +330,7 @@ class Game {
     for (let j = 0; j < this.dementors.length; j++) {
       const dementor = this.dementors[j];
       dementor.move();
-      console.log(`tou nas dementadores ${this.lives}`)
+
       if (this.lives < 1) {
         this.gameOver();
         break;
@@ -342,7 +342,6 @@ class Game {
       if (this.harry.didCollide(dementor)) {
         this.lives--;
         this.updateLives();
-        console.log('colidiuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu')
         dementor.element.remove();
         this.dementors.splice(j, 1);
         j--;
@@ -355,7 +354,6 @@ class Game {
     for (let d = 0; d < this.secondDementors.length; d++) {
       const secondDementor = this.secondDementors[d];
       secondDementor.move();
-      console.log(`tou nas segundo dementador ${this.lives}`)
 
       if (this.lives < 1) {
         this.gameOver();
@@ -368,7 +366,6 @@ class Game {
       if (this.harry.didCollide(secondDementor)) {
         this.lives--;
         this.updateLives();
-        console.log('colidiu')
         secondDementor.element.remove();
         this.secondDementors.splice(d, 1);
         d--;
@@ -378,7 +375,6 @@ class Game {
     for (let m = 0; m < this.magicPotions.length; m++) {
       const magicPortion = this.magicPotions[m];
       magicPortion.move();
-      console.log(`tou nas magic`)
       if (this.lives < 1) {
         this.gameOver();
         break;
@@ -426,15 +422,15 @@ class Game {
 
   addEventListeners() {
     window.addEventListener('keydown', (event) => {
-      const key = event.key.toLowerCase();// poe em minusculas o teclado
+      const key = event.key.toLowerCase();
       if (['arrowup', 'w'].includes(key)) {
-        this.harry.setDirection(0, -1); //ele vai subir
+        this.harry.setDirection(0, -1);
       } else if (['arrowdown', 's'].includes(key)) {
-        this.harry.setDirection(0, 1); // ele vai descer
+        this.harry.setDirection(0, 1);
       } else if (['arrowleft', 'a'].includes(key)) {
-        this.harry.setDirection(-1, 0); // vai para a esquerda
+        this.harry.setDirection(-1, 0);
       } else if (['arrowright', 'd'].includes(key)) {
-        this.harry.setDirection(1, 0); // vai para a direita
+        this.harry.setDirection(1, 0);
       }
     });
 
@@ -443,9 +439,9 @@ class Game {
     window.addEventListener('keyup', (event) => {
       const key = event.key.toLowerCase();
       if (['arrowup', 'arrowdown'].includes(key)) {
-        this.harry.setDirection(0, 0) // move se verticalmente
+        this.harry.setDirection(0, 0)
       } else if (['arrowleft', 'arrowright'].includes(key)) {
-        this.harry.setDirection(0, 0) // move se horizontalmente
+        this.harry.setDirection(0, 0)
       }
     })
   }
@@ -494,9 +490,9 @@ class Game {
     this.livesElement.style.display = "none";
     this.timerElement.style.display = "none";
     this.nextLevelScreen.style.display = "block";
-    // a partir de aqui estou a reiniciar o jogo
   }
 
+  //Reinicia el juego
   resetGameElements() {
     this.score = 0;
     this.lives = 3;
@@ -516,6 +512,7 @@ class Game {
     this.start();
   }
 
+  //Iniciar segundo nivel
   startNewLevel() {
     if (this.gameIsOver) return;
     this.resetGameElements();
@@ -524,7 +521,7 @@ class Game {
     this.nextLevelScreen.style.display = "none";
     this.gameBox.style.display = "block";
     this.gameScreen.style.display = "block";
-    this.scoreElement.style.display = "none"; //este nivel n tem scores
+    this.scoreElement.style.display = "none"; //Bloquear la puntuación
     this.livesElement.style.display = "block";
     this.timerElement.style.display = "block";
     this.homeScreen.style.height = `${this.height}px`

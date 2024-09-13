@@ -1,6 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/harry-potter');
 
-body, html{
+body,
+html {
   margin: 0;
   padding: 0;
   background-color: black;
@@ -118,7 +119,6 @@ body, html{
 
 #game-box * {
   pointer-events: none;
-  /* previene que todos los elementos del game-box sean arrastrados al clickar sobre ellos */
 }
 
 #game-over-screen {
@@ -127,7 +127,7 @@ body, html{
   height: 100%;
   margin: auto;
   text-align: center;
-  color:#bd7517;
+  color: #bd7517;
   font-family: 'Harry Potter', sans-serif;
 }
 
@@ -255,4 +255,3 @@ body, html{
   height: 60px;
   display: relative;
 }
-
